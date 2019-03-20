@@ -2,9 +2,13 @@
 
 Weather App Backend that supplies the forcast for a given location.
 
-## Prerequisites: Node
+## Prerequisites:
 
-## Installing: npm i
+Node
+
+## Installing:
+
+npm i
 
 ## Contributing
 
