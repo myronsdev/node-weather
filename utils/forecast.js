@@ -9,10 +9,9 @@ const forecast = (latitude, longitude, callback) => {
     } else if (response.body.error) {
       callback('No match found. Please try other cordinates', undefined)
     } else {
-      const currentTemp = response.body.currently.temperature
-      const chanceOfRain = response.body.currently.precipProbability
+      const { temperature, precipProbability } = response.body.currently
       const firstDaily = response.body.daily.data[0].summary
-      const weatherString = `${firstDaily} It is currently ${currentTemp} degrees out. There is a ${chanceOfRain}% chance of rain.`
+      const weatherString = `${firstDaily} It is currently ${temperature} degrees out. There is a ${precipProbability}% chance of rain.`
       callback(undefined, weatherString)
     }
   })
