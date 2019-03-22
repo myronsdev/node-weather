@@ -5,11 +5,11 @@ const geocode = (address, callback) => {
     address
   )}.json?access_token=pk.eyJ1IjoibXlyb25zZGV2IiwiYSI6ImNqdGkyeHF5bjB2dWo0NHBqeWF5dWg2ZnQifQ.Kyd0lcsSVNWdRwbrfyEtUA&limit=1`
 
-  request({ url, json: true }, (error, response) => {
-    const { center, place_name } = response.body.features[0]
+  request({ url, json: true }, (error, { body }) => {
+    const { center, place_name } = body.features[0]
     if (error) {
       callback('Unable to connect to location services!', undefined)
-    } else if (response.body.features.length === 0) {
+    } else if (body.features.length === 0) {
       callback('No match found. Try another search.', undefined)
     } else {
       callback(undefined, {
